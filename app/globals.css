@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/*
+  Tokens da identidade Gestão Tech RH (DamaTech).
+  brand = navy corporativo (identidade/estrutura). tech = azul elétrico (ação/destaque).
+  Espelhados em lib/theme/tokens.ts para os gráficos Recharts (que leem cor via prop JS).
+*/
+@theme {
+  --color-brand-50: #eef4fb;
+  --color-brand-100: #d6e4f5;
+  --color-brand-200: #aec9eb;
+  --color-brand-300: #7fa8dc;
+  --color-brand-400: #4e82c7;
+  --color-brand-500: #2c63ae;
+  --color-brand-600: #1e4e90;
+  --color-brand-700: #183f75;
+  --color-brand-800: #14335d;
+  --color-brand-900: #0f2743;
+  --color-brand-950: #0a1a2e;
+
+  --color-tech-50: #ecf3ff;
+  --color-tech-100: #dbe8ff;
+  --color-tech-200: #bfd5ff;
+  --color-tech-300: #93b7ff;
+  --color-tech-400: #6090ff;
+  --color-tech-500: #3b6ff5;
+  --color-tech-600: #2456e0;
+  --color-tech-700: #1b44be;
+  --color-tech-800: #1c3d9a;
+  --color-tech-900: #1d397a;
+  --color-tech-950: #15224a;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --radius-card: 0.875rem;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f5f7fa;
+  color: #0f2743;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Scrollbar discreta, cara de produto */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+  background-clip: content-box;
+}
+
+/* Respeita quem prefere menos movimento (KPIs count-up, transições) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes gt-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.gt-fade-up {
+  animation: gt-fade-up 0.4s ease-out both;
+}
